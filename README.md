@@ -1,6 +1,6 @@
 # Entre potes — bêta
 
-Jeu d’ambiance francophone sur un seul téléphone : 226 références, 35 cartes par partie, trois manches et paquets personnalisés.
+Jeu d’ambiance francophone sur un seul téléphone : 486 références, 35 cartes par partie, trois manches et paquets personnalisés.
 
 ## Jouer
 
