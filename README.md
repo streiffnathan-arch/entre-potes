@@ -8,7 +8,9 @@ Deux jeux d’ambiance francophones sur un seul téléphone : **Mot pour mot** e
 
 Sur iPhone : ouvrir le lien dans Safari, puis Partager > Sur l’écran d’accueil. Ouvrir l’application et attendre « Prêt pour jouer hors connexion » avant de couper Internet.
 
-**Mot pour mot** : deux à quatre équipes, tours de 30 secondes. Les mêmes cartes reviennent en description, un mot, puis mime. Passer coûte respectivement 5 secondes, 2 secondes et aucun malus.
+**Mot pour mot** : 45 cartes, deux à quatre équipes, tours de 30 secondes. Les mêmes cartes reviennent en description, un mot, puis mime. Passer coûte respectivement 5 secondes, 2 secondes et aucun malus.
+
+En fin de tour, un bilan liste les cartes vues : trouvées, passées et non trouvées. Touchez leur statut pour corriger les points et la pioche avant de passer à l’équipe suivante. Les pénalités restent appliquées. Les anciennes parties de 35 cartes sont conservées ; les nouvelles utilisent 45 cartes.
 
 Les paquets et parties sont enregistrés uniquement dans le navigateur utilisé. Exporter les paquets pour les sauvegarder ou les transférer. Aucun compte de jeu requis.
 
