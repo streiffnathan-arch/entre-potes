@@ -1,6 +1,6 @@
 # Entre potes — bêta
 
-Jeu d’ambiance francophone sur un seul téléphone : 486 références, 35 cartes par partie, trois manches et paquets personnalisés.
+Deux jeux d’ambiance francophones sur un seul téléphone : **Mot pour mot** et **Dans ta tête**, avec 486 références et des paquets personnalisés partagés.
 
 ## Jouer
 
@@ -8,9 +8,15 @@ Jeu d’ambiance francophone sur un seul téléphone : 486 références, 35 cart
 
 Sur iPhone : ouvrir le lien dans Safari, puis Partager > Sur l’écran d’accueil. Ouvrir l’application et attendre « Prêt pour jouer hors connexion » avant de couper Internet.
 
-Deux à quatre équipes, tours de 30 secondes. Les mêmes cartes reviennent en description, un mot, puis mime. Passer coûte respectivement 5 secondes, 2 secondes et aucun malus.
+**Mot pour mot** : deux à quatre équipes, tours de 30 secondes. Les mêmes cartes reviennent en description, un mot, puis mime. Passer coûte respectivement 5 secondes, 2 secondes et aucun malus.
 
 Les paquets et parties sont enregistrés uniquement dans le navigateur utilisé. Exporter les paquets pour les sauvegarder ou les transférer. Aucun compte de jeu requis.
+
+## Dans ta tête
+
+Jeu coopératif à 3–8 joueurs (5 par défaut), sans chronomètre. Chaque joueur devient médium une fois. Il voit seul une cible entre deux extrêmes et choisit un indice dans la banque ou les paquets personnels. Les autres débattent puis placent ensemble le curseur.
+
+Une confirmation révèle la cible et verrouille le score : écart de 0–5 = 4 points, 6–10 = 3 points, 11–20 = 2 points, au-delà = 0. À cinq joueurs, le groupe vise 20 points. La cible est cachée au retour d’une interruption et les parties des deux jeux sont sauvegardées séparément.
 
 ## Hébergement
 
