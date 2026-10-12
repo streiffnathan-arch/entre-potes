@@ -23,3 +23,9 @@ Une confirmation révèle la cible et verrouille le score : écart de 0–5 = 4 
 ## Hébergement
 
 Ce dépôt contient la version compilée du site. GitHub Pages publie la branche main depuis la racine. Les sources React/TypeScript du projet sont conservées dans le dossier de développement local. Pour republier, compiler avec BASE_PATH=/entre-potes/, puis remplacer les fichiers de cette version par ceux de dist/ en conservant .nojekyll.
+
+## Découvrir et créer des thèmes
+
+La bêta comprend neuf sélections composées à partir de la banque du jeu, des favoris sur le téléphone, l'ajout de thèmes à la bibliothèque et un atelier pour créer, nettoyer et sauvegarder ses propres cartes. Les réponses restent masquées avant de jouer. Les thèmes téléchargés et les brouillons restent disponibles hors connexion.
+
+Les interfaces de comptes, profils, amis et publication communautaire sont préparées. **Les comptes en ligne ne sont pas encore activés sur ce site** : ils nécessitent la configuration d'un projet Supabase, de sa base de données et de l'envoi d'e-mails. Aucun utilisateur, ami ou avis fictif n'est affiché. Les jeux et les paquets locaux fonctionnent sans compte.
