@@ -8,7 +8,7 @@ Le site reste sur GitHub Pages. Supabase fournit seulement les comptes et les do
 - Tables et politiques installées ; les fonctions de sécurité sont dans le schéma privé. Les contrôles SQL réels ont validé l'accès privé, public, entre amis et le blocage, puis annulé les données d'essai. L'audit de sécurité ne signale aucune alerte.
 - URL publique et clé publiable configurées dans `.env.local` ; seules ces valeurs publiques sont incluses dans l'application compilée.
 - SMTP Brevo enregistré dans Supabase, expéditeur vérifié, modèles d'inscription et de connexion en français avec `{{ .Token }}`. La clé SMTP reste dans Supabase, jamais dans le site ni ce dossier.
-- Réception effective d'un code, connexion complète et essai entre deux personnes encore à confirmer. Les étapes ci-dessous servent aussi à reproduire la configuration sur un projet neuf : ne pas recréer le projet existant.
+- Premier code déclaré délivré par Brevo et réception confirmée par le propriétaire. Connexion complète et essai entre deux personnes encore à confirmer. Les étapes ci-dessous servent aussi à reproduire la configuration sur un projet neuf : ne pas recréer le projet existant.
 
 ## Ce qui fonctionne déjà sans compte
 

@@ -12,7 +12,7 @@ Dans Safari : Partager > Sur l’écran d’accueil. Ouvrir l’application depu
 
 Neuf sélections utilisent la banque existante : recherche, filtres, favoris locaux, réponses masquées et ajout à Mes paquets. L'atelier permet de créer un thème, conserver son brouillon et nettoyer les doublons avant sauvegarde. Les téléchargements restent disponibles hors connexion.
 
-Les comptes par code email, profils, amis, thèmes privés/entre amis/publics, versions, signalements et blocages sont reliés au projet Supabase Entre potes. Brevo est configuré pour les emails de connexion, avec un expéditeur vérifié. La réception effective des codes et le parcours avec deux personnes restent à confirmer avant de considérer cette bêta comme ouverte au grand public. Voir [ACTIVER-LA-COMMUNAUTE.md](ACTIVER-LA-COMMUNAUTE.md). Aucune dépense n'a été engagée.
+Les comptes par code email, profils, amis, thèmes privés/entre amis/publics, versions, signalements et blocages sont reliés au projet Supabase Entre potes. Brevo est configuré avec un expéditeur vérifié ; le propriétaire a confirmé la réception du premier code. Le parcours complet avec deux personnes reste à confirmer avant ouverture au grand public. Voir [ACTIVER-LA-COMMUNAUTE.md](ACTIVER-LA-COMMUNAUTE.md). Aucune dépense n'a été engagée.
 
 Validation : 27 tests de logique, 12 contrôles de permissions PostgreSQL, tests d'isolation sur le projet Supabase réel (données synthétiques annulées) et parcours WebKit en 390 et 320 pixels, dont rechargement hors connexion. Aucun test sur iPhone physique n'a encore été effectué.
 
@@ -76,7 +76,7 @@ Le moteur de compilation esbuild-wasm remplace le binaire natif pour la compatib
 - src/style.css : présentation.
 - scripts/offline.mjs : cache versionné des fichiers de la version compilée.
 
-Le cache n’active une nouvelle version qu’après fermeture des anciennes fenêtres du jeu. Les paquets restent dans le stockage local. L’intégration Capacitor pourra ensuite réutiliser la version web ; distribution native et achats ne sont pas implémentés.
+Le cache installe une nouvelle version complète en arrière-plan, sans recharger une partie en cours. À la prochaine navigation, l’application privilégie la page à jour puis revient à sa copie hors connexion si le réseau échoue. Les deux caches précédents restent disponibles pour les fenêtres déjà ouvertes. Les paquets et la session de connexion restent dans le stockage local. L’intégration Capacitor pourra ensuite réutiliser la version web ; distribution native et achats ne sont pas implémentés.
 
 ## Publication GitHub Pages
 
@@ -93,7 +93,9 @@ $env:BASE_PATH='/entre-potes/'
 pnpm build
 ```
 
-Le chemin de base doit rester identique pour Vite et le script de cache. Pour revenir à une compilation à la racine, retirer BASE_PATH de l’environnement. Chaque publication remplace les anciens fichiers compilés par le contenu de dist/. Ne pas envoyer les sauvegardes personnelles, node_modules ou .openai sur GitHub.
+Le chemin de base doit rester identique pour Vite et le script de cache. Pour revenir à une compilation à la racine, retirer BASE_PATH de l’environnement. Chaque publication met à jour index.html, sw.js et les fichiers de dist/, mais conserve les anciens fichiers versionnés dans assets/ : une page gardée en cache peut encore les demander. Ne pas envoyer les sauvegardes personnelles, node_modules ou .openai sur GitHub.
+
+En cas de chargement interrompu, un écran « Relancer l’application » reste visible même si le JavaScript principal échoue. Ce bouton ne supprime ni les paquets ni les sessions. La connexion reste enregistrée dans le même navigateur ou la même installation ; navigation privée, suppression des données, déconnexion explicite et révocation de session peuvent imposer une nouvelle connexion.
 
 Les anciennes métadonnées Sites sont conservées localement mais ne servent pas à cette publication GitHub Pages.
 
