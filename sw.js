@@ -1,4 +1,4 @@
-const PREFIX="ep-a2d295a5-";const CACHE="ep-a2d295a5-eb0c5ada4389";const BASE="/entre-potes/";const ASSETS=["/entre-potes/assets/Community--1eH4z0m.js","/entre-potes/assets/index-ClTuWE8U.js","/entre-potes/assets/index-D6GjfnEq.css","/entre-potes/favicon.svg","/entre-potes/icon-192.png","/entre-potes/icon-512.png","/entre-potes/index.html","/entre-potes/manifest.webmanifest"];
+const PREFIX="ep-a2d295a5-";const CACHE="ep-a2d295a5-bc0064bd667c";const BASE="/entre-potes/";const ASSETS=["/entre-potes/assets/Community-dpvL-R_v.js","/entre-potes/assets/index-BxT4xLVu.css","/entre-potes/assets/index-KmE2qI-m.js","/entre-potes/favicon.svg","/entre-potes/icon-192.png","/entre-potes/icon-512.png","/entre-potes/index.html","/entre-potes/manifest.webmanifest"];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 // Keep previous assets for already-open tabs. Never reload a game automatically.
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).slice(0,-2).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
