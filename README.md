@@ -118,3 +118,14 @@ Ces vérifications ont été exécutées sur ordinateur. L’installation et le 
 
 Ces tests utilisent un navigateur WebKit sur ordinateur, pas un iPhone physique.
 
+
+## Refonte visuelle et allègement (13 octobre 2026)
+
+Direction visuelle préparée dans Canva : https://canva.link/4xa0pk33548wu8c. L’interface finale est construite en CSS et avec les icônes existantes, sans intégrer Canva dans le site, sans image de décoration ni police distante. Accueil à deux cartes citron/lavande, cinq filtres visibles, champs natifs lisibles et visibilité explicite des publications.
+
+Les données de communauté sont demandées pour la rubrique affichée. Les requêtes simultanées identiques sont mutualisées, le profil est gardé une minute en mémoire et les listes sont rafraîchies à leur ouverture. Les retours au premier plan sont regroupés. Le cache hors connexion est vérifié à l’activation du service worker plutôt que toutes les quatre secondes. Le minuteur ne tourne que pendant un tour, et la sélection des cartes n’est plus recalculée à chaque tick.
+
+Sur le même parcours connecté (Découvrir, compte, Découvrir, amis, catalogue public, créations) : 42 requêtes de données avant, 7 après. Il s’agit d’un test WebKit avec réponses simulées, pas d’une mesure sur l’iPhone physique. Le catalogue public réel répond aussi correctement. Le bundle complet reste sous 650 Ko non compressés, environ 195 Ko en gzip mesuré localement ; le nouveau style augmente légèrement le total par rapport à la version précédente. Aucun asset ancien n’est retiré du dépôt, afin de préserver les pages déjà en cache.
+
+Validation : 27 tests de logique, 12 contrôles PostgreSQL, parcours complets des jeux et bilans, mode hors connexion, session persistante, partage depuis l’éditeur, rafraîchissement des amis, lien partagé, contrôle des cinq filtres sur 320/390/430/900 px et des boutons de publication en portrait/paysage.
+
