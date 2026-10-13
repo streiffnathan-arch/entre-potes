@@ -129,3 +129,10 @@ Sur le même parcours connecté (Découvrir, compte, Découvrir, amis, catalogue
 
 Validation : 27 tests de logique, 12 contrôles PostgreSQL, parcours complets des jeux et bilans, mode hors connexion, session persistante, partage depuis l’éditeur, rafraîchissement des amis, lien partagé, contrôle des cinq filtres sur 320/390/430/900 px et des boutons de publication en portrait/paysage.
 
+## Sauvegarde privée des paquets — 13 octobre 2026
+
+Avec un compte, Mes paquets est synchronisé avec `private_libraries` sur Supabase. Chaque utilisateur ne peut lire et modifier que sa propre bibliothèque (RLS, colonnes autorisées, révision optimiste). Cette sauvegarde ne publie rien dans la communauté. Une copie locale par compte permet de jouer hors connexion et de reprendre les envois au retour du réseau.
+
+Sur un téléphone contenant des anciens paquets : se connecter, ouvrir Mes paquets et toucher « Sauvegarder les N paquet(s) de ce téléphone sur mon compte ». Attendre « Synchronisé ». Sur un autre appareil, se connecter avec le même email ; les paquets arrivent automatiquement. Les bibliothèques de comptes différents restent séparées. Une suppression de paquet se propage aux appareils synchronisés. Les modifications simultanées incompatibles sont conservées dans une copie.
+
+Migration SQL : `20261013120000_private_library_sync.sql`. Le CLI installé a échoué à initialiser son répertoire utilisateur malgré l’autorisation accordée ; fichier SQL créé localement et testé avec PGlite avant application via le connecteur Supabase. Tests : `node scripts/test.mjs`, puis le scénario WebKit `work/library-ui-test.cjs` depuis la racine du travail.
