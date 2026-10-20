@@ -1,6 +1,10 @@
 # Entre potes — bêta
 
-Application web React + TypeScript + Vite, conçue pour un téléphone partagé. Entre potes regroupe deux jeux : Mot pour mot et Dans ta tête.
+Banque actuelle : **875 cartes** dans Mot pour mot et **542 paires** dans Les Opps. Voir [la ligne éditoriale](BANQUE-EDITORIALE.md) pour la révision grand public Gen Z du 20 octobre 2026. Les sections datées ci-dessous conservent l’historique des versions.
+
+Application web React + TypeScript + Vite, conçue pour un téléphone partagé. Entre potes regroupe deux jeux : Mot pour mot et Les Opps.
+
+Validation de cette révision : 51 tests de logique, 14 contrôles SQL communautaires et 18 contrôles SQL groupes réussis. WebKit mobile : partie complète Les Opps, rôles, sauvegardes, secrets masqués et nouvelle partie hors connexion ; mise à jour explicite des sélections téléchargées et reprise d’une ancienne paire retirée du catalogue. Largeurs 390 et 320 px. Aucun iPhone physique testé. Aucun nouveau service ni dépendance ajouté.
 
 ## Utiliser la bêta
 
@@ -67,7 +71,7 @@ Prérequis : Node.js récent et pnpm. Installer les dépendances avec `pnpm inst
 
 Le moteur de compilation esbuild-wasm remplace le binaire natif pour la compatibilité de l’environnement Windows utilisé lors de la création. Il est plus lent mais conserve la chaîne Vite.
 
-- src/catalog.ts : 486 cartes validées et leurs catégories.
+- src/catalog.ts : 875 cartes et leurs 13 catégories, identifiants stables.
 - src/game.ts : règles indépendantes de l’interface.
 - src/storage.ts : validation et import/export.
 - src/App.tsx : écrans et actions.
@@ -178,3 +182,4 @@ Banque indépendante de 480 paires, 935 mots distincts au dernier audit, couvran
 Migration 20261020120000_opps_group_game.sql : ajoute opps aux valeurs autorisées de party_messages.game, conserve mots et mind pour la compatibilité avec l’historique. Aucune autre permission modifiée. Migration locale testée par PGlite puis appliquée avec le connecteur, le CLI de cet environnement ayant déjà échoué à initialiser sa configuration. Partage d’un jeu vérifié en ligne avec un compte synthétique dans une transaction annulée. Le contrôle Supabase ne signale pas de nouveau problème de sécurité (avertissement préexistant : https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
 
 Validation : 50 tests de logique dont 16 nouveaux, 14 tests communautaires et 18 tests groupes. Simulation de 60 parties complètes avec restauration des états. WebKit mobile : partie classique, distribution privée/recharge/arrière-plan, rôles optionnels, pouvoirs, victoire du Joker, coexistence de la sauvegarde Mot pour mot et nouvelle partie hors connexion. Aucun iPhone physique ni utilisateur réel utilisé.
+
