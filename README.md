@@ -1,3 +1,16 @@
+## Entre les lignes — troisième jeu
+
+Deux équipes d’au moins deux joueurs, un téléphone. Le donneur lit le mot en secret puis donne des indices à voix haute. La première équipe qui trouve marque, même l’adversaire. Les équipes alternent les indices à chaque mot, indépendamment du score ; changez le donneur dans chaque équipe.
+
+- Objectif : 5 points par défaut, réglable de 1 à 20.
+- Sans chrono par défaut ; option 30, 60 ou 90 secondes. Passer ou laisser expirer ne rapporte aucun point.
+- Variantes décochées par défaut : « Un seul mot » (un seul indice pour le tour) et « Vol double » (2 points pour un vol adverse).
+- Résultat corrigeable avant le tour suivant ou la victoire. En cas d’égalité orale impossible à départager : aucun point.
+- Banque partagée et paquets personnels/téléchargés, réponses cachées à la préparation. Tirage sans répétition avant épuisement, puis remélange.
+- Sauvegarde locale indépendante `entre-potes-lines-v1`. Secret caché et chrono en pause au passage en arrière-plan ou au changement d’écran ; recharge privée. Aucune modification des sauvegardes des autres jeux.
+- Accessible depuis l’accueil, un paquet de Découvrir ou Social. Une proposition dans un groupe ouvre le jeu sur un seul téléphone ; ce n’est pas du multijoueur distant.
+- Migration `20261020180000_lines_group_game.sql` : ajoute seulement l’identifiant `lines` aux jeux autorisés dans la messagerie, sans changer les accès.
+
 # Entre potes — bêta
 
 Connexion : email et mot de passe, avec code email en secours. Pour un compte existant, ouvrir Mon compte → Définir ou modifier mon mot de passe. Depuis l’écran de connexion, « Mot de passe oublié ou pas encore créé ? » vérifie l’email par code puis permet de choisir un mot de passe sur le même compte.
@@ -196,4 +209,4 @@ Banque indépendante de 480 paires, 935 mots distincts au dernier audit, couvran
 Migration 20261020120000_opps_group_game.sql : ajoute opps aux valeurs autorisées de party_messages.game, conserve mots et mind pour la compatibilité avec l’historique. Aucune autre permission modifiée. Migration locale testée par PGlite puis appliquée avec le connecteur, le CLI de cet environnement ayant déjà échoué à initialiser sa configuration. Partage d’un jeu vérifié en ligne avec un compte synthétique dans une transaction annulée. Le contrôle Supabase ne signale pas de nouveau problème de sécurité (avertissement préexistant : https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
 
 Validation : 50 tests de logique dont 16 nouveaux, 14 tests communautaires et 18 tests groupes. Simulation de 60 parties complètes avec restauration des états. WebKit mobile : partie classique, distribution privée/recharge/arrière-plan, rôles optionnels, pouvoirs, victoire du Joker, coexistence de la sauvegarde Mot pour mot et nouvelle partie hors connexion. Aucun iPhone physique ni utilisateur réel utilisé.
-
+Validation du troisième jeu : 58 tests de logique, 14 contrôles SQL communautaires et 18 contrôles SQL groupes passent. WebKit mobile (390 et 320 px) : partie complète jusqu’à 5 points, vol, correction, variantes, expiration et pause du chrono, recharge masquant le secret, cartes personnelles, lancement depuis Découvrir et hors connexion avec le serveur arrêté. Parcours Social testé avec trois comptes synthétiques et PGlite : proposition du troisième jeu, discussion, invitations et copies de paquets. Régression Les Opps complète avec pouvoirs, victoire Joker et sauvegarde Mot pour mot conservée. Aucun iPhone physique testé, aucun message ou code envoyé à un utilisateur réel. Migration lines vérifiée en ligne ; RLS inchangée. Seul avertissement Supabase préexistant : [protection des mots de passe compromis](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection), déjà signalé, option payante non activée.
