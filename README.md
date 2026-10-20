@@ -1,8 +1,22 @@
 # Entre potes — bêta
 
+Connexion : email et mot de passe, avec code email en secours. Pour un compte existant, ouvrir Mon compte → Définir ou modifier mon mot de passe. Depuis l’écran de connexion, « Mot de passe oublié ou pas encore créé ? » vérifie l’email par code puis permet de choisir un mot de passe sur le même compte.
+
 Banque actuelle : **875 cartes** dans Mot pour mot et **542 paires** dans Les Opps. Voir [la ligne éditoriale](BANQUE-EDITORIALE.md) pour la révision grand public Gen Z du 20 octobre 2026. Les sections datées ci-dessous conservent l’historique des versions.
 
 Application web React + TypeScript + Vite, conçue pour un téléphone partagé. Entre potes regroupe deux jeux : Mot pour mot et Les Opps.
+
+## Connexion par mot de passe — 20 octobre 2026
+
+`src/community/AuthPanel.tsx` utilise `signInWithPassword` pour se connecter et `updateUser` pour définir/modifier le mot de passe. Les nouveaux comptes vérifient d’abord leur email par OTP ; seul le bouton Créer un compte autorise la création d’identité. Récupération et connexion de secours utilisent `shouldCreateUser:false`. Aucune migration des comptes, des paquets ou des groupes. Les mots de passe sont uniquement transmis à Supabase Auth, jamais conservés dans les sauvegardes de l’app.
+
+L’interface demande au moins 12 caractères, vérifie la confirmation et limite à 72 octets pour bcrypt. Les exigences et limites du serveur restent applicables. Si Supabase exige une réauthentification, un code de confirmation est demandé avant la mise à jour. Les sessions restent persistantes dans le même navigateur ; aucune session existante n’est supprimée par la publication.
+
+Validation : compilation et suite de 51 tests de logique + 32 tests SQL ; parcours WebKit avec transport Auth simulé (mauvais mot de passe, récupération, code incorrect, mot de passe refusé, confirmation, deuxième téléphone, mêmes paquets, session après recharge, changement avec nonce, ancien mot de passe refusé, limitation des tentatives, inscription et secours OTP). Le service réel rejette les identifiants invalides et une modification de mot de passe sans session. Aucun compte réel modifié ni email réel envoyé pendant les tests ; la connexion réussie d’un utilisateur réel reste à essayer avec son propre mot de passe.
+
+Documentation vérifiée : [connexion](https://supabase.com/docs/guides/auth/passwords), [OTP](https://supabase.com/docs/guides/auth/auth-email-passwordless), [mise à jour du compte](https://supabase.com/docs/reference/javascript/auth-updateuser). Changelog consulté le 20 octobre : pas de changement bloquant pour ces appels sur Safari récent.
+
+Limite connue du projet : le conseiller Supabase signale que la [protection contre les mots de passe compromis](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection) est désactivée. Cette option nécessite Pro ou supérieur ; aucun abonnement ni coût ajouté. Les règles de longueur de l’interface ne remplacent pas ce contrôle serveur.
 
 Validation de cette révision : 51 tests de logique, 14 contrôles SQL communautaires et 18 contrôles SQL groupes réussis. WebKit mobile : partie complète Les Opps, rôles, sauvegardes, secrets masqués et nouvelle partie hors connexion ; mise à jour explicite des sélections téléchargées et reprise d’une ancienne paire retirée du catalogue. Largeurs 390 et 320 px. Aucun iPhone physique testé. Aucun nouveau service ni dépendance ajouté.
 
