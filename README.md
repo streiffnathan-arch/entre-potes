@@ -1,3 +1,20 @@
+## Les Opps : compositions libres et Mystère — 28 octobre 2026
+
+Parcours Sur mesure/Mystère validés en WebKit mobile (320 et 390 px) : configuration invalide bloquée, 4 sans Antagoniste, majorité initiale des Opps, deux tentatives indépendantes, survie d’un Antagoniste, saisie privée masquée en arrière-plan, reprise sans révéler les nombres et jeu hors connexion après arrêt du serveur.
+
+Trois modes, pour 3 à 12 joueurs :
+- **Classique** : répartition habituelle (3 joueurs : 2 Bons et 1 Opp ; dès 4 joueurs : un Antagoniste ; deux Opps dès 7).
+- **Sur mesure** : nombre d’Opps et d’Antagonistes au choix, Bons calculés avec les places restantes. Raccourcis Sans Antagoniste, Opps majoritaires et Double Antagoniste. Au moins 1 Bon et 1 adversaire, car le mot des Bons est la cible du jeu. Zéro Opp ou zéro Antagoniste est possible.
+- **Mystère** : composition tirée au lancement parmi les répartitions valides, avec assez de places pour les pouvoirs cochés. Les nombres ne sont affichés ni à la préparation, ni à la reprise. Composition révélée à la fin. Les camps éliminés sont masqués ; cette option peut aussi être cochée dans les deux autres modes. Les indices oraux et les pouvoirs utilisés peuvent révéler des informations.
+
+Règles acceptées : les Bons gagnent après élimination de tous les adversaires. Les Opps gardent la victoire à parité avec les Bons après élimination de tous les Antagonistes, sauf s’ils sont déjà à parité ou majoritaires au départ : ils doivent alors éliminer le dernier Bon. Chaque Antagoniste joue pour lui-même et gagne en trouvant le mot lors de son élimination (une seule tentative), ou en restant le seul joueur vivant. La tentative de l’Antagoniste qui vient d’être éliminé est résolue avant d’accorder la victoire au survivant. Une tentative ratée ne touche jamais les autres Antagonistes.
+
+Dans les nouvelles parties, l’absence de Bons ne provoque plus de tentative automatique : Opps et Antagonistes encore vivants continuent à voter. Si seuls plusieurs Antagonistes restent, chacun cherche à survivre ; un éliminé garde sa tentative. Les anciennes sauvegardes sans configuration conservent leur ancienne règle de dernière tentative.
+
+Les pouvoirs restent facultatifs, un par joueur et aucun sur les Antagonistes. Le Joker est toujours un Bon. Aucune modification de banque, de compte ou de stockage des autres jeux. Aucun nouveau service ni dépendance. Le même format de sauvegarde accepte les anciens états ; les nouveaux ajoutent une configuration, l’historique des tentatives et l’identité du gagnant solo.
+
+Validation : 69 tests de logique et 32 contrôles SQL locaux. Simulation de chaque composition valide de 3 à 12 joueurs, avec restauration des états jusqu’à la victoire. Tests mobiles WebKit : parcours classique et pouvoirs existants, sauvegarde Mot pour mot préservée. Les tests n’utilisent pas d’iPhone physique.
+
 ## Les Opps à 3 — 28 octobre 2026
 
 Validation : 62 tests de logique et 32 contrôles SQL locaux passent. WebKit mobile (320 px) : victoires des Bons, de l’Opp et du Joker à 3, rôles optionnels, secret masqué à la recharge, retour à 4 avec Antagoniste, puis lancement à 3 hors connexion avec le serveur arrêté. Aucun iPhone physique testé.
