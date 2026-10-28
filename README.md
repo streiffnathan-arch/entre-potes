@@ -1,3 +1,9 @@
+## Les Opps à 3 — 28 octobre 2026
+
+Validation : 62 tests de logique et 32 contrôles SQL locaux passent. WebKit mobile (320 px) : victoires des Bons, de l’Opp et du Joker à 3, rôles optionnels, secret masqué à la recharge, retour à 4 avec Antagoniste, puis lancement à 3 hors connexion avec le serveur arrêté. Aucun iPhone physique testé.
+
+Les Opps accepte désormais 3 à 12 joueurs. À 3 : exactement 2 Bons et 1 Opp, aucun Antagoniste. La première élimination termine la partie : Opp éliminé → Bons gagnants ; Bon éliminé → Opp gagnant, sauf la victoire spéciale du Joker si coché. Égalités et Bouclier déclenchent toujours un nouveau vote avant élimination. Les rôles restent optionnels, jusqu’à trois à 3 joueurs ; le Fantôme n’a pas de vote supplémentaire puisque la partie se termine. À partir de 4 joueurs, répartition et règles inchangées. Sauvegardes existantes conservées ; nouvelle partie à 3 restaurable hors connexion.
+
 ## Entre les lignes — troisième jeu
 
 Deux équipes d’au moins deux joueurs, un téléphone. Le donneur lit le mot en secret puis donne des indices à voix haute. La première équipe qui trouve marque, même l’adversaire. Les équipes alternent les indices à chaque mot, indépendamment du score ; changez le donneur dans chaque équipe.
@@ -17,7 +23,7 @@ Connexion : email et mot de passe, avec code email en secours. Pour un compte ex
 
 Banque actuelle : **875 cartes** dans Mot pour mot et **542 paires** dans Les Opps. Voir [la ligne éditoriale](BANQUE-EDITORIALE.md) pour la révision grand public Gen Z du 20 octobre 2026. Les sections datées ci-dessous conservent l’historique des versions.
 
-Application web React + TypeScript + Vite, conçue pour un téléphone partagé. Entre potes regroupe deux jeux : Mot pour mot et Les Opps.
+Application web React + TypeScript + Vite, conçue pour un téléphone partagé. Entre potes regroupe trois jeux : Mot pour mot, Les Opps et Entre les lignes.
 
 ## Connexion par mot de passe — 20 octobre 2026
 
